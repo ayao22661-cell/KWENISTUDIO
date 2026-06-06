@@ -64,9 +64,14 @@
     body:has(button:hover) .cursor-ring{width:52px;height:52px;border-color:rgba(240,240,240,.4);border-radius:50%}
 
     /* ── PARTICULES HERO ── */
-.hero-particles{
-  display: none; /* Confettis supprimés */
-}
+    .hero-particles{
+      position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden;
+    }
+    .particle{
+      position:absolute;bottom:0;border-radius:0;
+      background:var(--red);
+      animation:particleFloat var(--dur,8s) var(--delay,0s) ease-in-out infinite;
+    }
     @keyframes particleFloat{
       0%{transform:translateY(100vh) translateX(0) scale(0);opacity:0}
       10%{opacity:var(--op,.6)}
@@ -75,12 +80,182 @@
     }
 
     /* ── ORBES AMBIANCE ── */
-.orb{
-  display:none; /* Désactivé pour retirer l'effet brouillon */
-}
+    .orb{
+      position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;
+      animation:orbPulse var(--odur,12s) ease-in-out infinite alternate;
+    }
     @keyframes orbPulse{
       from{transform:scale(1) translate(0,0);opacity:var(--oa,.06)}
       to{transform:scale(1.2) translate(var(--ox,20px),var(--oy,-20px));opacity:calc(var(--oa,.06)*1.6)}
+    }
+
+    /* ── GLITCH HERO TITLE ── */
+    @keyframes glitch1{
+      0%,100%{clip-path:inset(0 0 95% 0);transform:translate(-3px,0)}
+      20%{clip-path:inset(30% 0 50% 0);transform:translate(3px,0)}
+      40%{clip-path:inset(60% 0 20% 0);transform:translate(-2px,0)}
+      60%{clip-path:inset(80% 0 5% 0);transform:translate(2px,0)}
+      80%{clip-path:inset(10% 0 80% 0);transform:translate(0,0)}
+    }
+    @keyframes glitch2{
+      0%,100%{clip-path:inset(90% 0 0 0);transform:translate(2px,0)}
+      20%{clip-path:inset(10% 0 70% 0);transform:translate(-3px,0)}
+      40%{clip-path:inset(50% 0 30% 0);transform:translate(3px,0)}
+      60%{clip-path:inset(20% 0 65% 0);transform:translate(-1px,0)}
+      80%{clip-path:inset(75% 0 10% 0);transform:translate(1px,0)}
+    }
+    .hero-title-glitch{position:relative;display:inline-block}
+    .hero-title-glitch::before,.hero-title-glitch::after{
+      content:attr(data-text);
+      position:absolute;top:0;left:0;width:100%;height:100%;
+      font-family:var(--fh);font-weight:900;font-size:inherit;
+      text-transform:uppercase;letter-spacing:-1px;line-height:1;
+    }
+    .hero-title-glitch::before{
+      color:rgba(0,255,255,.6);
+      animation:glitch1 4s steps(1) infinite;
+    }
+    .hero-title-glitch::after{
+      color:rgba(255,0,128,.5);
+      animation:glitch2 4s steps(1) infinite;
+    }
+
+    /* ── MAGNETIC BUTTONS ── */
+    .btn{
+      position:relative;overflow:hidden;
+    }
+    .btn::before{
+      content:'';position:absolute;inset:0;
+      background:rgba(255,255,255,.08);
+      transform:translateX(-110%) skewX(-15deg);
+      transition:transform .4s ease;
+    }
+    .btn:hover::before{transform:translateX(110%) skewX(-15deg)}
+
+    /* ── FLOATING NUMBERS BG ── */
+    .hero-number-bg{
+      position:absolute;pointer-events:none;z-index:0;
+      font-family:var(--fh);font-weight:900;
+      color:rgba(232,18,26,.03);
+      animation:numberDrift var(--nd,20s) linear infinite;
+      white-space:nowrap;user-select:none;
+    }
+    @keyframes numberDrift{
+      from{transform:translateY(0) rotate(var(--nr,0deg))}
+      to{transform:translateY(-100vh) rotate(var(--nr,0deg))}
+    }
+
+    /* ── NEON BORDER ANIMATION ── */
+    @keyframes neonBorder{
+      0%,100%{box-shadow:0 0 8px rgba(232,18,26,.3),inset 0 0 8px rgba(232,18,26,.05)}
+      50%{box-shadow:0 0 24px rgba(232,18,26,.6),inset 0 0 16px rgba(232,18,26,.1)}
+    }
+    .road-dot.done{animation:neonBorder 2s ease-in-out infinite}
+    .road-dot.active{animation:neonBorder 1.5s ease-in-out infinite}
+
+    /* ── TICKER GLOW ── */
+    .ticker{
+      position:relative;overflow:hidden;
+    }
+    .ticker::before{
+      content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
+      animation:tickerShine 3s ease-in-out infinite;
+      z-index:2;pointer-events:none;
+    }
+    @keyframes tickerShine{
+      0%{left:-60%}100%{left:140%}
+    }
+
+    /* ── SECTION REVEAL WITH CLIP ── */
+    .clip-reveal{
+      clip-path:inset(0 100% 0 0);
+      transition:clip-path .9s cubic-bezier(.16,1,.3,1);
+    }
+    .clip-reveal.in{clip-path:inset(0 0% 0 0)}
+
+    /* ── COUNTER GLOW ── */
+    .stat-n{
+      text-shadow:0 0 30px rgba(232,18,26,.4);
+      transition:text-shadow .3s;
+    }
+    .stat:hover .stat-n{text-shadow:0 0 50px rgba(232,18,26,.8)}
+
+    /* ── MANIFESTE LINE STAGGER ── */
+    .manifeste-line{
+      overflow:hidden;display:block;
+      transform:translateX(-40px);opacity:0;
+      transition:transform .8s cubic-bezier(.16,1,.3,1),opacity .8s;
+    }
+    .manifeste-line.in{transform:translateX(0);opacity:1}
+    .manifeste-line:nth-child(2){transition-delay:.1s}
+    .manifeste-line:nth-child(3){transition-delay:.2s}
+    .manifeste-line:nth-child(4){transition-delay:.3s}
+
+    /* ── FOOTER LINK TRAIL ── */
+    .fc a::after{
+      content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;
+      background:var(--red);transition:width .3s ease;
+    }
+    .fc a:hover::after{width:100%}
+
+    /* ── PROJ CARD CORNER ── */
+    .proj-card::after{
+      content:'';position:absolute;bottom:0;right:0;
+      width:0;height:0;
+      border-style:solid;
+      border-width:0 0 32px 32px;
+      border-color:transparent transparent rgba(232,18,26,.3) transparent;
+      transition:border-width .3s ease;
+      z-index:10;
+    }
+    .proj-card:hover::after{border-width:0 0 48px 48px}
+
+    /* ── PULSE RING HERO ── */
+    @keyframes pulseRing{
+      0%{transform:scale(1);opacity:.4}
+      100%{transform:scale(2.5);opacity:0}
+    }
+    .hero-pulse{
+      position:absolute;pointer-events:none;border-radius:50%;
+      border:1px solid rgba(232,18,26,.4);
+      animation:pulseRing var(--pr,3s) ease-out infinite;
+    }
+
+    /* ── ECOSYS ITEM DEPTH ── */
+    .ecosys-item{
+      transition:background .25s,transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s;
+    }
+    .ecosys-item:hover{
+      transform:translateY(-4px) scale(1.02);
+      box-shadow:0 12px 40px rgba(232,18,26,.1);
+    }
+
+    /* ── CONVICTION GLOW ── */
+    .conviction{
+      animation:convGlow 4s ease-in-out infinite alternate;
+    }
+    @keyframes convGlow{
+      from{border-left-color:rgba(232,18,26,.5)}
+      to{border-left-color:rgba(232,18,26,1)}
+    }
+
+    /* ── JOIN OPT 3D ── */
+    .join-opt{
+      transition:background .25s,transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s;
+    }
+    .join-opt:hover{
+      transform:translateY(-6px) perspective(400px) rotateX(-4deg);
+      box-shadow:0 16px 40px rgba(232,18,26,.1);
+    }
+
+    /* ── TAG PULSE ── */
+    .tag::before{
+      animation:tagDot 2s ease-in-out infinite;
+    }
+    @keyframes tagDot{
+      0%,100%{opacity:1;transform:scale(1)}
+      50%{opacity:.4;transform:scale(.6)}
     }
 
     /* ── HERO BG IMAGE ── */
@@ -1113,6 +1288,13 @@
   </svg>
   <!-- Pixel particles container -->
   <div id="pixelParticles" style="position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden"></div>
+  <!-- Pulse rings -->
+  <div class="hero-pulse" style="width:200px;height:200px;top:25%;right:20%;--pr:3s"></div>
+  <div class="hero-pulse" style="width:200px;height:200px;top:25%;right:20%;--pr:3s;animation-delay:1s"></div>
+  <div class="hero-pulse" style="width:200px;height:200px;top:25%;right:20%;--pr:3s;animation-delay:2s"></div>
+  <!-- Number bg -->
+  <div class="hero-number-bg" style="font-size:300px;top:60%;left:3%;--nd:25s;--nr:-8deg">01</div>
+  <div class="hero-number-bg" style="font-size:200px;top:80%;right:5%;--nd:18s;--nr:5deg;animation-delay:-8s">2026</div>
   <!-- Circuit canvas -->
   <canvas class="circuit-canvas" id="circuitCanvas"></canvas>
   <!-- Texte fantôme de profondeur -->
@@ -1761,6 +1943,212 @@
     });
   },{threshold:.2});
   document.querySelectorAll('.pillars').forEach(p=>pillsObs.observe(p));
+
+  // ── CURSOR TRAIL ──
+  const trailCount=10;
+  const trails=[];
+  for(let i=0;i<trailCount;i++){
+    const d=document.createElement('div');
+    d.className='cursor-trail-dot';
+    d.style.cssText=`opacity:${(1-i/trailCount)*.6};width:${5-i*.3}px;height:${5-i*.3}px;background:var(--red);border-radius:50%;transition:opacity .3s`;
+    document.body.appendChild(d);
+    trails.push({el:d,x:0,y:0});
+  }
+  const trailPositions=Array(trailCount).fill(null).map(()=>({x:0,y:0}));
+  document.addEventListener('mousemove',e=>{trailPositions[0]={x:e.clientX,y:e.clientY}});
+  (function animTrail(){
+    for(let i=trailCount-1;i>0;i--){
+      trailPositions[i].x+=(trailPositions[i-1].x-trailPositions[i].x)*.3;
+      trailPositions[i].y+=(trailPositions[i-1].y-trailPositions[i].y)*.3;
+    }
+    trails.forEach((t,i)=>{
+      t.el.style.left=trailPositions[i].x+'px';
+      t.el.style.top=trailPositions[i].y+'px';
+    });
+    requestAnimationFrame(animTrail);
+  })();
+
+  // ── CIRCUIT CANVAS ANIMATION ──
+  (function initCircuit(){
+    const canvas=document.getElementById('circuitCanvas');
+    if(!canvas)return;
+    const ctx=canvas.getContext('2d');
+    function resize(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight}
+    resize();window.addEventListener('resize',resize);
+    const nodes=[];
+    for(let i=0;i<18;i++){
+      nodes.push({
+        x:Math.random()*canvas.width,y:Math.random()*canvas.height,
+        vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3
+      });
+    }
+    function drawCircuit(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      nodes.forEach(n=>{
+        n.x+=n.vx;n.y+=n.vy;
+        if(n.x<0||n.x>canvas.width)n.vx*=-1;
+        if(n.y<0||n.y>canvas.height)n.vy*=-1;
+      });
+      for(let i=0;i<nodes.length;i++){
+        for(let j=i+1;j<nodes.length;j++){
+          const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y;
+          const dist=Math.sqrt(dx*dx+dy*dy);
+          if(dist<200){
+            ctx.beginPath();
+            ctx.strokeStyle=`rgba(232,18,26,${(1-dist/200)*.15})`;
+            ctx.lineWidth=.5;
+            ctx.moveTo(nodes[i].x,nodes[i].y);
+            ctx.lineTo(nodes[j].x,nodes[j].y);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.fillStyle=`rgba(232,18,26,${(1-dist/200)*.4})`;
+            ctx.arc(nodes[i].x,nodes[i].y,1.5,0,Math.PI*2);
+            ctx.fill();
+          }
+        }
+      }
+      requestAnimationFrame(drawCircuit);
+    }
+    drawCircuit();
+  })();
+
+  // ── PIXEL PARTICLES ──
+  (function spawnPixels(){
+    const container=document.getElementById('pixelParticles');
+    if(!container)return;
+    for(let i=0;i<40;i++){
+      const p=document.createElement('div');
+      p.className='pixel-particle'+(Math.random()>.5?' white':'');
+      p.style.cssText=`
+        left:${Math.random()*100}%;
+        top:${Math.random()*100}%;
+        --pp-dur:${5+Math.random()*10}s;
+        --pp-delay:${-Math.random()*12}s;
+        --pp-dx:${(Math.random()-.5)*60}px;
+        --pp-dy:${-40-Math.random()*80}px;
+        --pp-op:${.3+Math.random()*.5};
+      `;
+      container.appendChild(p);
+    }
+  })();
+
+  // ── MAGNETIC BUTTONS ──
+  document.querySelectorAll('.btn,.nav-btn').forEach(btn=>{
+    btn.addEventListener('mousemove',e=>{
+      const rect=btn.getBoundingClientRect();
+      const x=(e.clientX-rect.left-rect.width/2)*.25;
+      const y=(e.clientY-rect.top-rect.height/2)*.25;
+      btn.style.transform=`translate(${x}px,${y}px)`;
+    });
+    btn.addEventListener('mouseleave',()=>{
+      btn.style.transform='';
+      btn.style.transition='transform .5s cubic-bezier(.16,1,.3,1)';
+      setTimeout(()=>btn.style.transition='',500);
+    });
+  });
+
+  // ── ECOSYS ITEMS STAGGER ──
+  const ecosysObs=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.querySelectorAll('.ecosys-item').forEach((item,j)=>{
+          item.style.opacity='0';item.style.transform='translateY(30px)';
+          setTimeout(()=>{
+            item.style.transition='opacity .5s ease,transform .5s cubic-bezier(.16,1,.3,1),background .25s,box-shadow .3s';
+            item.style.opacity='1';item.style.transform='translateY(0)';
+          },j*120);
+        });
+        ecosysObs.unobserve(entry.target);
+      }
+    });
+  },{threshold:.15});
+  document.querySelectorAll('.ecosys-items').forEach(g=>ecosysObs.observe(g));
+
+  // ── JOIN OPTIONS STAGGER ──
+  const joinObs=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.querySelectorAll('.join-opt').forEach((item,j)=>{
+          item.style.opacity='0';item.style.transform='translateY(40px) rotateX(10deg)';
+          setTimeout(()=>{
+            item.style.transition='opacity .6s ease,transform .6s cubic-bezier(.16,1,.3,1),background .25s,box-shadow .35s';
+            item.style.opacity='1';item.style.transform='translateY(0) rotateX(0)';
+          },j*150);
+        });
+        joinObs.unobserve(entry.target);
+      }
+    });
+  },{threshold:.2});
+  document.querySelectorAll('.join-options').forEach(g=>joinObs.observe(g));
+
+  // ── MANIFESTE LINE STAGGER (override .r observer) ──
+  const manifObs=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.querySelectorAll('.manifeste-line').forEach((line,j)=>{
+          line.style.opacity='0';line.style.transform='translateX(-50px)';
+          setTimeout(()=>{
+            line.style.transition='opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1),color .4s';
+            line.style.opacity='1';line.style.transform='translateX(0)';
+          },j*120);
+        });
+        manifObs.unobserve(entry.target);
+      }
+    });
+  },{threshold:.1});
+  document.querySelectorAll('.manifeste-inner').forEach(m=>manifObs.observe(m));
+
+  // ── CERTIFS STAGGER ──
+  const certObs=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.querySelectorAll('.certif').forEach((c,j)=>{
+          c.style.opacity='0';c.style.transform='translateX(30px)';
+          setTimeout(()=>{
+            c.style.transition='opacity .5s ease,transform .5s cubic-bezier(.16,1,.3,1),border-color .3s,background .3s';
+            c.style.opacity='1';c.style.transform='translateX(0)';
+          },j*120);
+        });
+        certObs.unobserve(entry.target);
+      }
+    });
+  },{threshold:.2});
+  document.querySelectorAll('.certifs').forEach(c=>certObs.observe(c));
+
+  // ── PROJ CARDS ENTRÉE STAGGER ──
+  const projObs=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const cards=entry.target.querySelectorAll('.proj-card');
+        cards.forEach((card,j)=>{
+          if(!card.classList.contains('in')){
+            card.style.opacity='0';card.style.transform='translateY(50px) scale(.97)';
+            setTimeout(()=>{
+              card.style.transition='opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)';
+              card.style.opacity='1';card.style.transform='translateY(0) scale(1)';
+            },j*150);
+          }
+        });
+        projObs.unobserve(entry.target);
+      }
+    });
+  },{threshold:.05});
+  document.querySelectorAll('.proj-grid').forEach(g=>projObs.observe(g));
+
+  // ── GLITCH ON HERO TITLE HOVER ──
+  const heroTitle=document.getElementById('heroTitle');
+  if(heroTitle){
+    heroTitle.addEventListener('mouseenter',()=>{
+      heroTitle.dataset.text=heroTitle.textContent;
+      heroTitle.classList.add('hero-title-glitch');
+    });
+    heroTitle.addEventListener('mouseleave',()=>{
+      heroTitle.classList.remove('hero-title-glitch');
+    });
+  }
+
+  // ── FOOTER LINKS POSITION RELATIVE ──
+  document.querySelectorAll('.fc a').forEach(a=>a.style.position='relative');
 </script>
 </body>
 </html>
