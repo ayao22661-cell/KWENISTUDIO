@@ -63,14 +63,9 @@
     body:has(button:hover) .cursor-ring{width:52px;height:52px;border-color:rgba(240,240,240,.4);border-radius:50%}
 
     /* ── PARTICULES HERO ── */
-    .hero-particles{
-      position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;
-    }
-    .particle{
-      position:absolute;width:2px;height:2px;background:var(--red);
-      border-radius:50%;opacity:0;
-      animation:particleFloat var(--dur,8s) var(--delay,0s) infinite ease-in-out;
-    }
+.hero-particles{
+  display: none; /* Confettis supprimés */
+}
     @keyframes particleFloat{
       0%{transform:translateY(100vh) translateX(0) scale(0);opacity:0}
       10%{opacity:var(--op,.6)}
@@ -79,11 +74,9 @@
     }
 
     /* ── ORBES AMBIANCE ── */
-    .orb{
-      position:absolute;border-radius:50%;
-      filter:blur(80px);pointer-events:none;
-      animation:orbPulse var(--odur,10s) ease-in-out infinite alternate;
-    }
+.orb{
+  display:none; /* Désactivé pour retirer l'effet brouillon */
+}
     @keyframes orbPulse{
       from{transform:scale(1) translate(0,0);opacity:var(--oa,.06)}
       to{transform:scale(1.2) translate(var(--ox,20px),var(--oy,-20px));opacity:calc(var(--oa,.06)*1.6)}
@@ -399,7 +392,7 @@
       color:var(--red);margin-bottom:20px;
       display:flex;align-items:center;gap:16px;
     }
-    .eyebrow::before{content:'';width:36px;height:1px;background:var(--red);flex-shrink:0}
+    .eyebrow::before{content:'';width:6px;height:6px;background:var(--red);border-radius:50%;flex-shrink:0}
 
     /* ── TEXT SPLIT HERO ── */
     h1.hero-title{
@@ -466,7 +459,7 @@
       color:var(--red);margin-bottom:48px;
       display:flex;align-items:center;gap:14px;
     }
-    .tag::before{content:'';width:28px;height:1px;background:var(--red);flex-shrink:0}
+    .tag::before{content:'';width:6px;height:6px;background:var(--red);border-radius:50%;flex-shrink:0}
     h2.sh{
       font-family:var(--fh);font-weight:900;
       font-size:clamp(44px,5.5vw,80px);
