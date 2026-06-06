@@ -24,6 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
@@ -204,15 +205,9 @@
       box-shadow:16px 24px 64px rgba(0,0,0,.5),0 0 40px rgba(232,18,26,.1);
     }
 
-    /* ── GLITCH TITLE EFFECT ── */
-    @keyframes glitch1{
-      0%,90%,100%{clip-path:none;transform:none}
-      91%{clip-path:polygon(0 20%,100% 20%,100% 30%,0 30%);transform:translateX(-3px)}
-      93%{clip-path:polygon(0 60%,100% 60%,100% 70%,0 70%);transform:translateX(3px)}
-      95%{clip-path:polygon(0 40%,100% 40%,100% 50%,0 50%);transform:translateX(-2px)}
-    }
+    /* ── HERO TITLE ── */
     .hero-title{
-      animation:glitch1 8s ease-in-out infinite;
+      /* clean — no glitch */
     }
 
     /* ── SKILL ITEMS HOVER ── */
@@ -872,6 +867,196 @@
       .cursor,.cursor-ring{display:none}
       body{cursor:auto}
     }
+
+    /* ── CURSEUR GAMING TRAIL ── */
+    .cursor-trail-dot{
+      position:fixed;pointer-events:none;z-index:9997;
+      width:5px;height:5px;
+      background:var(--red);
+      border-radius:50%;
+      transform:translate(-50%,-50%);
+      transition:opacity .4s ease;
+    }
+
+    /* ── PIXEL PARTICLES HERO ── */
+    .pixel-particle{
+      position:absolute;pointer-events:none;
+      width:3px;height:3px;
+      background:var(--red);
+      opacity:0;
+      animation:pixelFloat var(--pp-dur,8s) var(--pp-delay,0s) ease-in-out infinite;
+    }
+    .pixel-particle.white{background:rgba(240,240,240,.35)}
+    @keyframes pixelFloat{
+      0%{transform:translateY(0) translateX(0);opacity:0}
+      15%{opacity:var(--pp-op,.5)}
+      85%{opacity:var(--pp-op,.5)}
+      100%{transform:translateY(var(--pp-dy,-80px)) translateX(var(--pp-dx,20px));opacity:0}
+    }
+
+    /* ── CIRCUIT LINES HERO ── */
+    .circuit-canvas{
+      position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.18;
+    }
+
+    /* ── AI DOTS GRID (section IA) ── */
+    .ai-dot-grid{
+      position:absolute;inset:0;pointer-events:none;z-index:0;
+      background-image:radial-gradient(circle, rgba(232,18,26,.25) 1px, transparent 1px);
+      background-size:32px 32px;
+      opacity:0;
+      animation:aiGridPulse 4s ease-in-out infinite alternate;
+    }
+    @keyframes aiGridPulse{
+      from{opacity:.04}
+      to{opacity:.12}
+    }
+
+    /* ── ICÔNES DANS LES PILLS (vision) ── */
+    .pill-icon{
+      width:44px;height:44px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(232,18,26,.08);
+      border:1px solid rgba(232,18,26,.15);
+      color:rgba(232,18,26,.5);
+      font-size:18px;
+      transition:background .25s,color .25s,border-color .25s;
+    }
+    .pill:hover .pill-icon{
+      background:rgba(232,18,26,.14);
+      color:var(--red);
+      border-color:rgba(232,18,26,.4);
+    }
+
+    /* ── ICÔNES STATS ── */
+    .stat-icon{
+      font-size:22px;color:rgba(232,18,26,.3);
+      margin-bottom:12px;
+      display:block;
+      transition:color .3s;
+    }
+    .stat:hover .stat-icon{color:var(--red)}
+
+    /* ── ICÔNES PROJETS ── */
+    .proj-cat-icon{
+      margin-right:7px;
+      opacity:.7;
+    }
+
+    /* ── ICÔNES ROADMAP ── */
+    .road-icon{
+      display:block;font-size:13px;
+      color:rgba(240,240,240,.25);
+      margin-top:12px;
+    }
+    .road-item:hover .road-icon{color:rgba(232,18,26,.5)}
+
+    /* ── ICÔNES SKILLS ── */
+    .skill-item{
+      display:flex;align-items:center;gap:10px;
+    }
+    .skill-item i{
+      font-size:14px;color:rgba(232,18,26,.35);
+      flex-shrink:0;transition:color .2s;
+    }
+    .skill-item:hover i{color:var(--red)}
+
+    /* ── ICÔNES CERTIFS ── */
+    .certif-icon{
+      width:32px;height:32px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;
+      color:rgba(232,18,26,.5);font-size:15px;
+    }
+
+    /* ── ICÔNES JOIN OPTIONS ── */
+    .join-opt-icon{
+      font-size:24px;color:rgba(232,18,26,.35);
+      margin-bottom:14px;display:block;
+      transition:color .25s,transform .25s;
+    }
+    .join-opt:hover .join-opt-icon{
+      color:var(--red);
+      transform:scale(1.1);
+    }
+
+    /* ── ICÔNES FOOTER ── */
+    .footer-social{
+      display:flex;gap:12px;margin-top:18px;
+    }
+    .footer-social a{
+      width:36px;height:36px;
+      display:flex;align-items:center;justify-content:center;
+      border:1px solid var(--border);
+      color:rgba(240,240,240,.35);
+      font-size:14px;
+      transition:border-color .2s,color .2s,background .2s;
+      text-decoration:none;
+    }
+    .footer-social a:hover{
+      border-color:var(--red);
+      color:var(--white);
+      background:rgba(232,18,26,.1);
+    }
+
+    /* ── ICÔNES NAV ── */
+    .nav-links a i{
+      margin-right:5px;font-size:10px;
+      opacity:.5;
+    }
+
+    /* ── ICÔNE EYEBROW HERO ── */
+    .eyebrow i{
+      font-size:10px;opacity:.7;
+    }
+
+    /* ── ECOSYS ITEM ICONS ── */
+    .ecosys-item-icon{
+      font-size:20px;color:rgba(232,18,26,.3);
+      margin-bottom:16px;display:block;
+      transition:color .25s;
+    }
+    .ecosys-item:hover .ecosys-item-icon{color:var(--red)}
+
+    /* ── TICKER ICONS ── */
+    .ticker-icon{
+      padding-right:48px;
+      color:rgba(255,255,255,.4);
+      font-size:12px;
+    }
+
+    /* ── BTN ICON ── */
+    .btn i{font-size:13px}
+
+    /* ── SCAN LINE (conservée, sobre) ── */
+    .hero-scan{
+      background:linear-gradient(90deg,transparent,rgba(232,18,26,.18),transparent);
+    }
+
+    /* ── CONTACT BTN ICON ── */
+    .join-mail-icon{margin-right:8px}
+
+    /* ── GAMING CROSSHAIR HERO DECO ── */
+    .hero-crosshair{
+      position:absolute;pointer-events:none;z-index:2;
+      opacity:.07;
+      animation:crosshairPulse 4s ease-in-out infinite alternate;
+    }
+    @keyframes crosshairPulse{
+      from{opacity:.05;transform:scale(1)}
+      to{opacity:.12;transform:scale(1.04)}
+    }
+
+    /* ── MANIFESTE LINE HOVER ICON ── */
+    .manifeste-line-wrap{
+      display:flex;align-items:center;gap:16px;
+    }
+    .manifeste-line-wrap i{
+      font-size:clamp(18px,2vw,28px);
+      color:rgba(232,18,26,.15);
+      flex-shrink:0;
+      transition:color .4s;
+    }
+    .manifeste-line-wrap:hover i{color:rgba(232,18,26,.4)}
   </style>
 </head>
 <body>
@@ -884,11 +1069,11 @@
 <nav id="nav">
   <a href="#" class="nav-logo"><img src="logo.png" alt="Kweni Studio"/></a>
   <ul class="nav-links">
-    <li><a href="#vision">Vision</a></li>
-    <li><a href="#projets">Projets</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#fondateur">Fondateur</a></li>
-    <li><a href="#rejoindre">Contact</a></li>
+    <li><a href="#vision"><i class="fa-solid fa-eye"></i>Vision</a></li>
+    <li><a href="#projets"><i class="fa-solid fa-gamepad"></i>Projets</a></li>
+    <li><a href="#roadmap"><i class="fa-solid fa-route"></i>Roadmap</a></li>
+    <li><a href="#fondateur"><i class="fa-solid fa-user"></i>Fondateur</a></li>
+    <li><a href="#rejoindre"><i class="fa-solid fa-envelope"></i>Contact</a></li>
   </ul>
   <a href="#rejoindre" class="nav-btn">Rejoindre l'aventure</a>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu">
@@ -916,6 +1101,20 @@
   <div class="hero-particles" id="heroParticles"></div>
   <!-- Scan line -->
   <div class="hero-scan"></div>
+  <!-- Crosshair gaming déco -->
+  <svg class="hero-crosshair" style="width:120px;height:120px;top:22%;right:18%" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="60" cy="60" r="38" stroke="#E8121A" stroke-width="1"/>
+    <circle cx="60" cy="60" r="4" fill="#E8121A"/>
+    <line x1="60" y1="10" x2="60" y2="40" stroke="#E8121A" stroke-width="1"/>
+    <line x1="60" y1="80" x2="60" y2="110" stroke="#E8121A" stroke-width="1"/>
+    <line x1="10" y1="60" x2="40" y2="60" stroke="#E8121A" stroke-width="1"/>
+    <line x1="80" y1="60" x2="110" y2="60" stroke="#E8121A" stroke-width="1"/>
+    <circle cx="60" cy="60" r="18" stroke="#E8121A" stroke-width=".5" stroke-dasharray="4 4"/>
+  </svg>
+  <!-- Pixel particles container -->
+  <div id="pixelParticles" style="position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden"></div>
+  <!-- Circuit canvas -->
+  <canvas class="circuit-canvas" id="circuitCanvas"></canvas>
   <!-- Texte fantôme de profondeur -->
   <div class="hero-float-text" style="font-size:clamp(120px,18vw,260px);top:10%;left:-5%;--htf:22s">KWENI</div>
   <div class="hero-float-text" style="font-size:clamp(60px,9vw,140px);bottom:15%;right:-2%;--htf:16s;animation-direction:alternate-reverse">STUDIO</div>
@@ -928,7 +1127,7 @@
   <div class="bracket-bl"></div>
   <div class="bracket-br"></div>
   <div class="hero-content">
-    <div class="eyebrow r">Studio Créatif · Abidjan, Côte d'Ivoire · 2026</div>
+    <div class="eyebrow r"><i class="fa-solid fa-location-dot"></i> Studio Créatif · Abidjan, Côte d'Ivoire · 2026</div>
     <h1 class="hero-title" id="heroTitle">
     Créer les <span class="red">Mondes</span><br>Africains.
 </h1>
@@ -976,10 +1175,10 @@
     <div>
       <h2 class="sh r">L'Afrique,<br/><span class="red">acteur majeur</span><br/>du numérique.</h2>
       <div class="stats-row r" data-d="1">
-        <div class="stat"><div class="stat-n" data-count="4" data-suffix="">0</div><div class="stat-l">Projets actifs</div></div>
-        <div class="stat"><div class="stat-n" data-count="3" data-suffix="">0</div><div class="stat-l">Univers gaming</div></div>
-        <div class="stat"><div class="stat-n" data-count="1" data-suffix="">0</div><div class="stat-l">Système IA</div></div>
-        <div class="stat"><div class="stat-n" data-inf="true">∞</div><div class="stat-l">Ambition</div></div>
+        <div class="stat"><i class="stat-icon fa-solid fa-folder-open"></i><div class="stat-n" data-count="4" data-suffix="">0</div><div class="stat-l">Projets actifs</div></div>
+        <div class="stat"><i class="stat-icon fa-solid fa-joystick"></i><div class="stat-n" data-count="3" data-suffix="">0</div><div class="stat-l">Univers gaming</div></div>
+        <div class="stat"><i class="stat-icon fa-solid fa-brain"></i><div class="stat-n" data-count="1" data-suffix="">0</div><div class="stat-l">Système IA</div></div>
+        <div class="stat"><i class="stat-icon fa-solid fa-infinity"></i><div class="stat-n" data-inf="true">∞</div><div class="stat-l">Ambition</div></div>
       </div>
     </div>
     <div class="vision-body">
@@ -988,15 +1187,15 @@
       <p class="r" data-d="2">Le studio explore la création de mondes interactifs, de systèmes de gestion et de technologies intelligentes capables de raconter des histoires africaines à travers le gaming et les outils digitaux.</p>
       <div class="pillars r" data-d="3">
         <div class="pill">
-          <div class="pill-letter">G</div>
+          <div class="pill-icon"><i class="fa-solid fa-gamepad"></i></div>
           <div class="pill-text"><h4>Gaming</h4><p>Mondes interactifs ancrés dans la culture africaine</p></div>
         </div>
         <div class="pill">
-          <div class="pill-letter">I</div>
+          <div class="pill-icon"><i class="fa-solid fa-microchip"></i></div>
           <div class="pill-text"><h4>Intelligence Artificielle</h4><p>Systèmes intelligents pour l'assistance créative</p></div>
         </div>
         <div class="pill">
-          <div class="pill-letter">C</div>
+          <div class="pill-icon"><i class="fa-solid fa-globe-africa"></i></div>
           <div class="pill-text"><h4>Culture</h4><p>Des histoires africaines racontées par l'Afrique</p></div>
         </div>
       </div>
@@ -1018,7 +1217,7 @@
       </div>
       <div class="proj-body">
         <div class="proj-num">01</div>
-        <div class="proj-cat">Simulation · Carrière Musicale</div>
+        <div class="proj-cat"><i class="fa-solid fa-music proj-cat-icon"></i>Simulation · Carrière Musicale</div>
         <h3 class="proj-name">BuzzKing</h3>
         <p class="proj-desc">Construis ta carrière rap de zéro. Produis des sons, gère tes clashes, développe ta fanbase et conquiers les charts. Un jeu de management musical immersif avec un système de localisation multi-régions : CI, FR, US, UK, NG, BR, DE.</p>
         <div class="proj-cta">Jouer maintenant <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -1031,7 +1230,7 @@
       </div>
       <div class="proj-body">
         <div class="proj-num">02</div>
-        <div class="proj-cat">Football · Management</div>
+        <div class="proj-cat"><i class="fa-solid fa-futbol proj-cat-icon"></i>Football · Management</div>
         <h3 class="proj-name">Africa Elite<br/>Manager</h3>
         <p class="proj-desc">Football Manager version africaine. Entraîne les meilleurs talents du continent, développe ton équipe et conquiers la CAF Champions League. Simulation complète avec mercato, académie, scouting et progression multi-saisons.</p>
         <div class="proj-cta">Jouer maintenant <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -1044,7 +1243,7 @@
       </div>
       <div class="proj-body">
         <div class="proj-num">03</div>
-        <div class="proj-cat">Football · Stratégie Club</div>
+        <div class="proj-cat"><i class="fa-solid fa-shield-halved proj-cat-icon"></i>Football · Stratégie Club</div>
         <h3 class="proj-name">Africa Elite<br/>Club Manager</h3>
         <p class="proj-desc">Gère un club africain de A à Z. Tactiques, mercato, finances et développement sportif. Un jeu de stratégie profond où chaque décision compte pour bâtir la légende de ton club sur le continent.</p>
         <div class="proj-cta">Jouer maintenant <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -1057,7 +1256,7 @@
       </div>
       <div class="proj-body">
         <div class="proj-num">04</div>
-        <div class="proj-cat">Intelligence Artificielle</div>
+        <div class="proj-cat"><i class="fa-solid fa-robot proj-cat-icon"></i>Intelligence Artificielle</div>
         <h3 class="proj-name">Pensée IA</h3>
         <p class="proj-desc">Architecture d'IA multi-agents orientée réflexion et assistance créative. Système d'agents spécialisés (Auto, Audit, Code, Créatif, Stratégie, Visionnaire, Recherche) avec mémoire persistante et vision multimodale.</p>
         <div class="proj-cta">Découvrir <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -1074,21 +1273,25 @@
   </div>
   <div class="ecosys-items">
     <div class="ecosys-item">
+      <i class="ecosys-item-icon fa-solid fa-music"></i>
       <div class="ecosys-item-num">01 · Musique</div>
       <div class="ecosys-item-name">BuzzKing</div>
       <div class="ecosys-item-desc">La rue africaine en jeu. Du studio au sommet des charts, chaque décision forge une légende.</div>
     </div>
     <div class="ecosys-item">
+      <i class="ecosys-item-icon fa-solid fa-futbol"></i>
       <div class="ecosys-item-num">02 · Football</div>
       <div class="ecosys-item-name">Africa Elite Manager</div>
       <div class="ecosys-item-desc">Révèle les talents du continent. Bâtis une équipe, conquiers la CAF, inscris ton nom dans l'histoire.</div>
     </div>
     <div class="ecosys-item">
+      <i class="ecosys-item-icon fa-solid fa-chess-rook"></i>
       <div class="ecosys-item-num">03 · Stratégie</div>
       <div class="ecosys-item-name">Africa Elite Club Manager</div>
       <div class="ecosys-item-desc">Gère un club de A à Z. Tactique, mercato, finances — chaque saison est un combat.</div>
     </div>
     <div class="ecosys-item">
+      <i class="ecosys-item-icon fa-solid fa-microchip"></i>
       <div class="ecosys-item-num">04 · Intelligence</div>
       <div class="ecosys-item-name">Pensée IA</div>
       <div class="ecosys-item-desc">L'outil qui alimente tout le reste. Un système multi-agents conçu pour amplifier la créativité humaine.</div>
@@ -1107,7 +1310,7 @@
     <div class="road-item">
       <div class="road-dot done"><span>✓</span></div>
       <div class="road-content">
-        <div class="road-date">Juin 2026 — Accompli</div>
+        <div class="road-date"><i class="fa-solid fa-flag-checkered" style="margin-right:6px;opacity:.6"></i>Juin 2026 — Accompli</div>
         <div class="road-title">Fondation du Studio</div>
         <p class="road-desc">Création officielle de Kweni Studio. Lancement des 4 projets principaux en ligne : BuzzKing, AEM, AECM et Pensée IA. Définition de l'identité visuelle et de la vision globale du studio.</p>
         <div class="road-tags">
@@ -1121,7 +1324,7 @@
     <div class="road-item">
       <div class="road-dot active"><span>→</span></div>
       <div class="road-content">
-        <div class="road-date">Juillet — Septembre 2026 — En cours</div>
+        <div class="road-date"><i class="fa-solid fa-spinner fa-spin" style="margin-right:6px;opacity:.6"></i>Juillet — Septembre 2026 — En cours</div>
         <div class="road-title">Consolidation & Mobile</div>
         <p class="road-desc">Publication de BuzzKing (Rapivoire) sur Google Play Store. Refonte mobile complète des interfaces de jeu. Ajout de nouvelles fonctionnalités : tournois, système de saisons, profils joueurs.</p>
         <div class="road-tags">
@@ -1135,7 +1338,7 @@
     <div class="road-item">
       <div class="road-dot next"><span>◦</span></div>
       <div class="road-content">
-        <div class="road-date">Octobre — Décembre 2026 — À venir</div>
+        <div class="road-date"><i class="fa-regular fa-clock" style="margin-right:6px;opacity:.6"></i>Octobre — Décembre 2026 — À venir</div>
         <div class="road-title">Expansion & Communauté</div>
         <p class="road-desc">Lancement des versions communautaires avec classements globaux et multijoueur. Extension du système IA de Pensée IA. Partenariats avec des créateurs et studios africains.</p>
         <div class="road-tags">
@@ -1148,7 +1351,7 @@
     <div class="road-item">
       <div class="road-dot next"><span>◦</span></div>
       <div class="road-content">
-        <div class="road-date">2027 — Vision long terme</div>
+        <div class="road-date"><i class="fa-solid fa-rocket" style="margin-right:6px;opacity:.6"></i>2027 — Vision long terme</div>
         <div class="road-title">Kweni Studio v2.0</div>
         <p class="road-desc">Développement de nouveaux univers. Studio physique à Abidjan. Création d'un programme pour les développeurs et créatifs africains. Impact culturel et technologique continental.</p>
         <div class="road-tags">
@@ -1179,32 +1382,32 @@
       <p class="r" data-d="1">Basé à Abidjan, Côte d'Ivoire, j'ai développé une expertise hybride entre création visuelle, storytelling et développement numérique. Formé en gestion de projet digital, cinématographie et montage vidéo, j'ai construit un profil à l'intersection du design, du jeu vidéo et de l'intelligence artificielle.</p>
       <p class="r" data-d="2">Graphiste Designer chez Radiance Immobilier en parallèle, je développe en autodidacte les projets de Kweni Studio — BuzzKing, Africa Elite Manager, Africa Elite Club Manager et Pensée IA — avec une conviction : l'Afrique a les talents et les histoires pour peser sur l'industrie mondiale du numérique.</p>
       <div class="skills-grid r" data-d="3">
-        <div class="skill-item">Photoshop · Illustrator</div>
-        <div class="skill-item">Figma · InDesign</div>
-        <div class="skill-item">JavaScript · HTML/CSS</div>
-        <div class="skill-item">Vercel · Supabase</div>
-        <div class="skill-item">Premiere Pro · CapCut</div>
-        <div class="skill-item">WordPress · Elementor</div>
-        <div class="skill-item">Community Management</div>
-        <div class="skill-item">Game Design</div>
+        <div class="skill-item"><i class="fa-brands fa-adobe"></i>Photoshop · Illustrator</div>
+        <div class="skill-item"><i class="fa-brands fa-figma"></i>Figma · InDesign</div>
+        <div class="skill-item"><i class="fa-brands fa-js"></i>JavaScript · HTML/CSS</div>
+        <div class="skill-item"><i class="fa-solid fa-cloud"></i>Vercel · Supabase</div>
+        <div class="skill-item"><i class="fa-solid fa-film"></i>Premiere Pro · CapCut</div>
+        <div class="skill-item"><i class="fa-brands fa-wordpress"></i>WordPress · Elementor</div>
+        <div class="skill-item"><i class="fa-solid fa-users"></i>Community Management</div>
+        <div class="skill-item"><i class="fa-solid fa-gamepad"></i>Game Design</div>
       </div>
       <div class="certifs r" data-d="4">
         <div class="certif">
-          <div class="certif-dot"></div>
+          <div class="certif-icon"><i class="fa-solid fa-graduation-cap"></i></div>
           <div class="certif-text">
             <h5>Simplon Côte d'Ivoire</h5>
             <p>Gestion de projet digital & montage vidéo — 2024/2025</p>
           </div>
         </div>
         <div class="certif">
-          <div class="certif-dot"></div>
+          <div class="certif-icon"><i class="fa-solid fa-video"></i></div>
           <div class="certif-text">
             <h5>Canon Vidéo Académie</h5>
             <p>Cinématographie & production de films — 2024/2025</p>
           </div>
         </div>
         <div class="certif">
-          <div class="certif-dot"></div>
+          <div class="certif-icon"><i class="fa-brands fa-google"></i></div>
           <div class="certif-text">
             <h5>Google — Fundamentals of Digital Marketing</h5>
             <p>Marketing digital certifié</p>
