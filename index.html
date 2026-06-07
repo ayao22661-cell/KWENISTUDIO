@@ -1460,34 +1460,118 @@
   <div class="kl-glitch-band" id="kl-band1"></div>
   <div class="kl-glitch-band" id="kl-band2"></div>
   <div class="kl-glitch-band" id="kl-band3"></div>
-  <!-- Corner brackets (gaming HUD) -->
-  <div class="kl-corner kl-tl"></div>
-  <div class="kl-corner kl-tr"></div>
-  <div class="kl-corner kl-bl"></div>
-  <div class="kl-corner kl-br"></div>
+
+  <!-- Adinkra ambient background symbols -->
+  <svg class="kl-adinkra-bg kl-adinkra-tl" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Gye Nyame simplifié -->
+    <circle cx="60" cy="60" r="54" stroke="#E8121A" stroke-width="1"/>
+    <circle cx="60" cy="60" r="34" stroke="#E8121A" stroke-width=".7"/>
+    <circle cx="60" cy="60" r="9" fill="#E8121A" fill-opacity=".3"/>
+    <rect x="57.5" y="10" width="5" height="24" rx="2.5" fill="#E8121A" fill-opacity=".6"/>
+    <rect x="57.5" y="86" width="5" height="24" rx="2.5" fill="#E8121A" fill-opacity=".6"/>
+    <rect x="10" y="57.5" width="24" height="5" rx="2.5" fill="#E8121A" fill-opacity=".6"/>
+    <rect x="86" y="57.5" width="24" height="5" rx="2.5" fill="#E8121A" fill-opacity=".6"/>
+    <path d="M60 12 C52 12 46 20 46 28" stroke="#E8121A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M60 12 C68 12 74 20 74 28" stroke="#E8121A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  </svg>
+  <svg class="kl-adinkra-bg kl-adinkra-br" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Sankofa -->
+    <circle cx="60" cy="48" r="30" stroke="#E8121A" stroke-width="1"/>
+    <circle cx="60" cy="48" r="16" stroke="#E8121A" stroke-width=".7"/>
+    <path d="M60 78 C44 90 36 106 48 112 C60 118 68 104 60 96 C52 88 60 78 60 78Z" stroke="#E8121A" stroke-width="1.2" fill="none"/>
+    <circle cx="40" cy="34" r="8" stroke="#E8121A" stroke-width="1.2" fill="none"/>
+    <circle cx="38" cy="32" r="2" fill="#E8121A" fill-opacity=".5"/>
+    <circle cx="60" cy="48" r="5" fill="#E8121A" fill-opacity=".3"/>
+  </svg>
+
   <!-- HUD top bar -->
   <div class="kl-hud-top">
-    <span class="kl-hud-text" id="kl-system">SYSTEM INIT...</span>
-    <span class="kl-hud-text" id="kl-version">v2.4.1 // BUILD 0047</span>
+    <span class="kl-hud-text" id="kl-system">KWENI STUDIO — INITIALISATION</span>
+    <span class="kl-hud-text" id="kl-version">ABIDJAN · CÔTE D'IVOIRE</span>
   </div>
-  <!-- Central logo zone -->
+
+  <!-- Central zone -->
   <div class="kl-center">
-    <!-- Glitch logo container -->
-    <div class="kl-logo-wrap" id="kl-logo-wrap">
-      <div class="kl-logo-text" id="kl-logo-text" data-text="KWENI">KWENI</div>
-      <div class="kl-logo-sub" id="kl-logo-sub">STUDIO</div>
+
+    <!-- MASQUE BAOULÉ — SVG dessiné à la main -->
+    <div class="kl-mask-wrap" id="kl-mask-wrap">
+      <svg class="kl-mask-svg" id="kl-mask-svg" viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Lueur derrière le masque -->
+        <ellipse cx="100" cy="140" rx="70" ry="90" fill="#E8121A" fill-opacity=".04"/>
+        <!-- Silhouette principale du masque Baoulé -->
+        <path class="kl-mask-path" d="
+          M100 18
+          C72 18 50 38 44 66
+          C40 82 42 100 46 116
+          C50 134 54 148 56 160
+          C58 172 58 186 60 198
+          C62 210 70 224 80 232
+          C86 236 92 238 100 238
+          C108 238 114 236 120 232
+          C130 224 138 210 140 198
+          C142 186 142 172 144 160
+          C146 148 150 134 154 116
+          C158 100 160 82 156 66
+          C150 38 128 18 100 18Z
+        " stroke="#E8121A" stroke-width="1.5" fill="none" stroke-dasharray="600" stroke-dashoffset="600"/>
+        <!-- Front (front du masque, haut arrondi) -->
+        <path class="kl-mask-path kl-p2" d="M80 18 C80 10 90 6 100 6 C110 6 120 10 120 18" stroke="#E8121A" stroke-width="1" fill="none" stroke-dasharray="60" stroke-dashoffset="60"/>
+        <!-- Coiffe / couronne stylisée -->
+        <path class="kl-mask-path kl-p3" d="M70 22 L65 4 M80 18 L78 2 M100 14 L100 0 M120 18 L122 2 M130 22 L135 4" stroke="#E8121A" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="30" stroke-dashoffset="30"/>
+        <!-- Yeux en amande (style Baoulé) -->
+        <ellipse class="kl-mask-path kl-p4" cx="78" cy="110" rx="14" ry="8" stroke="#E8121A" stroke-width="1.2" stroke-dasharray="70" stroke-dashoffset="70"/>
+        <ellipse class="kl-mask-path kl-p4" cx="122" cy="110" rx="14" ry="8" stroke="#E8121A" stroke-width="1.2" stroke-dasharray="70" stroke-dashoffset="70"/>
+        <!-- Pupilles -->
+        <circle class="kl-mask-fill" cx="78" cy="110" r="4" fill="#E8121A" fill-opacity="0"/>
+        <circle class="kl-mask-fill" cx="122" cy="110" r="4" fill="#E8121A" fill-opacity="0"/>
+        <!-- Sourcils arqués -->
+        <path class="kl-mask-path kl-p4" d="M64 98 Q78 92 92 98" stroke="#E8121A" stroke-width="1" fill="none" stroke-dasharray="40" stroke-dashoffset="40"/>
+        <path class="kl-mask-path kl-p4" d="M108 98 Q122 92 136 98" stroke="#E8121A" stroke-width="1" fill="none" stroke-dasharray="40" stroke-dashoffset="40"/>
+        <!-- Nez en T (scarification) -->
+        <path class="kl-mask-path kl-p5" d="M100 118 L100 155 M88 118 Q100 112 112 118" stroke="#E8121A" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-dasharray="80" stroke-dashoffset="80"/>
+        <!-- Bouche petite et stylisée -->
+        <path class="kl-mask-path kl-p5" d="M88 172 Q100 182 112 172" stroke="#E8121A" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-dasharray="40" stroke-dashoffset="40"/>
+        <line class="kl-mask-path kl-p5" x1="100" y1="172" x2="100" y2="180" stroke="#E8121A" stroke-width="1" stroke-dasharray="10" stroke-dashoffset="10"/>
+        <!-- Scarifications joues (3 traits par côté) -->
+        <line class="kl-mask-path kl-p6" x1="50" y1="128" x2="62" y2="136" stroke="#E8121A" stroke-width="1" stroke-linecap="round" stroke-dasharray="20" stroke-dashoffset="20"/>
+        <line class="kl-mask-path kl-p6" x1="48" y1="138" x2="60" y2="146" stroke="#E8121A" stroke-width="1" stroke-linecap="round" stroke-dasharray="20" stroke-dashoffset="20"/>
+        <line class="kl-mask-path kl-p6" x1="46" y1="148" x2="58" y2="156" stroke="#E8121A" stroke-width="1" stroke-linecap="round" stroke-dasharray="20" stroke-dashoffset="20"/>
+        <line class="kl-mask-path kl-p6" x1="150" y1="128" x2="138" y2="136" stroke="#E8121A" stroke-width="1" stroke-linecap="round" stroke-dasharray="20" stroke-dashoffset="20"/>
+        <line class="kl-mask-path kl-p6" x1="152" y1="138" x2="140" y2="146" stroke="#E8121A" stroke-width="1" stroke-linecap="round" stroke-dasharray="20" stroke-dashoffset="20"/>
+        <line class="kl-mask-path kl-p6" x1="154" y1="148" x2="142" y2="156" stroke="#E8121A" stroke-width="1" stroke-linecap="round" stroke-dasharray="20" stroke-dashoffset="20"/>
+        <!-- Motifs géométriques sur le menton -->
+        <path class="kl-mask-path kl-p6" d="M86 202 L100 194 L114 202 L100 210 Z" stroke="#E8121A" stroke-width="1" fill="none" stroke-dasharray="60" stroke-dashoffset="60"/>
+        <!-- Oreilles stylisées -->
+        <path class="kl-mask-path kl-p7" d="M44 118 C36 118 30 126 32 136 C34 146 42 150 48 146" stroke="#E8121A" stroke-width="1" fill="none" stroke-dasharray="40" stroke-dashoffset="40"/>
+        <path class="kl-mask-path kl-p7" d="M156 118 C164 118 170 126 168 136 C166 146 158 150 152 146" stroke="#E8121A" stroke-width="1" fill="none" stroke-dasharray="40" stroke-dashoffset="40"/>
+        <!-- Collier/pendentif en bas -->
+        <path class="kl-mask-path kl-p7" d="M76 238 Q100 256 124 238" stroke="#E8121A" stroke-width="1" fill="none" stroke-dasharray="60" stroke-dashoffset="60"/>
+        <circle class="kl-mask-fill" cx="100" cy="252" r="5" fill="#E8121A" fill-opacity="0"/>
+        <!-- Guerrière: épée stylisée à droite -->
+        <line class="kl-warrior-line" x1="170" y1="60" x2="185" y2="200" stroke="#E8121A" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="150" stroke-dashoffset="150"/>
+        <path class="kl-warrior-line" d="M162 66 L178 54 L185 62 L170 72Z" stroke="#E8121A" stroke-width="1" fill="none" stroke-dasharray="50" stroke-dashoffset="50"/>
+        <!-- Guerrière: bouclier stylisé à gauche -->
+        <ellipse class="kl-warrior-line" cx="26" cy="140" rx="14" ry="22" stroke="#E8121A" stroke-width="1.2" fill="none" stroke-dasharray="80" stroke-dashoffset="80"/>
+        <line class="kl-warrior-line" x1="26" y1="118" x2="26" y2="162" stroke="#E8121A" stroke-width="1" stroke-linecap="round" stroke-dasharray="50" stroke-dashoffset="50"/>
+        <line class="kl-warrior-line" x1="14" y1="140" x2="38" y2="140" stroke="#E8121A" stroke-width="1" stroke-linecap="round" stroke-dasharray="30" stroke-dashoffset="30"/>
+      </svg>
+      <!-- Glow pulse derrière le masque -->
+      <div class="kl-mask-glow" id="kl-mask-glow"></div>
     </div>
+
     <!-- Tagline -->
     <div class="kl-tagline" id="kl-tagline">CRÉATEUR DE MONDES AFRICAINS</div>
+
     <!-- Boot sequence lines -->
     <div class="kl-boot" id="kl-boot">
-      <div class="kl-boot-line" id="bl0">▸ INITIALISATION DES MODULES...</div>
-      <div class="kl-boot-line" id="bl1">▸ CHARGEMENT DES ASSETS VISUELS...</div>
-      <div class="kl-boot-line" id="bl2">▸ MOTEUR DE JEU ACTIVÉ...</div>
-      <div class="kl-boot-line" id="bl3">▸ CONNEXION IA KWENI...</div>
-      <div class="kl-boot-line kl-ready" id="bl4">✓ READY TO PLAY</div>
+      <div class="kl-boot-line" id="bl0">▸ ÉVEIL DU MASQUE BAOULÉ...</div>
+      <div class="kl-boot-line" id="bl1">▸ MÉMOIRE DES ANCÊTRES CHARGÉE...</div>
+      <div class="kl-boot-line" id="bl2">▸ ESPRIT GUERRIÈRE AMAZONE ACTIVÉ...</div>
+      <div class="kl-boot-line" id="bl3">▸ CONNEXION ABIDJAN — MONDE...</div>
+      <div class="kl-boot-line kl-ready" id="bl4">✓ LES MONDES AFRICAINS S'OUVRENT</div>
     </div>
   </div>
+
   <!-- Progress bar zone -->
   <div class="kl-progress-wrap">
     <div class="kl-progress-track">
@@ -1496,25 +1580,26 @@
     </div>
     <div class="kl-progress-info">
       <span class="kl-pct" id="kl-pct">0%</span>
-      <span class="kl-pstatus" id="kl-pstatus">LOADING</span>
+      <span class="kl-pstatus" id="kl-pstatus">CHARGEMENT</span>
     </div>
   </div>
+
   <!-- HUD bottom bar -->
   <div class="kl-hud-bot">
-    <span class="kl-hud-text">ABIDJAN // CÔTE D'IVOIRE</span>
+    <span class="kl-hud-text">KWENI STUDIO · 2026</span>
     <span class="kl-hud-text kl-blink" id="kl-signal">◆ SIGNAL OK</span>
   </div>
 </div>
 
 <style>
-/* ══ KWENI LOADER STYLES ══ */
+/* ══ KWENI LOADER — MASQUE BAOULÉ · GUERRIÈRE AMAZONE ══ */
 #kweni-loader{
   position:fixed;inset:0;z-index:99999;
-  background:#000;
+  background:#050505;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   overflow:hidden;
   font-family:'Barlow Condensed',sans-serif;
-  transition:opacity .6s ease, visibility .6s ease;
+  transition:opacity .8s ease, visibility .8s ease;
 }
 #kweni-loader.kl-done{
   opacity:0;visibility:hidden;pointer-events:none;
@@ -1525,159 +1610,161 @@
   position:absolute;inset:0;pointer-events:none;z-index:10;
   background:repeating-linear-gradient(
     to bottom,
-    transparent 0px,
-    transparent 2px,
-    rgba(0,0,0,.18) 2px,
-    rgba(0,0,0,.18) 4px
+    transparent 0px,transparent 2px,
+    rgba(0,0,0,.14) 2px,rgba(0,0,0,.14) 4px
   );
-  animation:kl-scanroll 8s linear infinite;
+  animation:kl-scanroll 10s linear infinite;
 }
-@keyframes kl-scanroll{
-  from{background-position:0 0}
-  to{background-position:0 100px}
-}
+@keyframes kl-scanroll{from{background-position:0 0}to{background-position:0 100px}}
 
 /* Noise */
 .kl-noise{
   position:absolute;inset:0;pointer-events:none;z-index:9;
-  opacity:.04;
-  animation:kl-noiseAnim .12s steps(1) infinite;
+  opacity:.03;
+  animation:kl-noiseAnim .15s steps(1) infinite;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size:200px 200px;
 }
 @keyframes kl-noiseAnim{
-  0%{background-position:0 0}20%{background-position:-40px -60px}40%{background-position:30px 70px}60%{background-position:-20px 40px}80%{background-position:60px -30px}100%{background-position:0 0}
+  0%{background-position:0 0}20%{background-position:-40px -60px}
+  40%{background-position:30px 70px}60%{background-position:-20px 40px}
+  80%{background-position:60px -30px}100%{background-position:0 0}
 }
 
 /* Glitch bands */
 .kl-glitch-band{
-  position:absolute;left:0;right:0;height:3px;
-  background:rgba(232,18,26,.7);
-  pointer-events:none;z-index:20;
-  opacity:0;
-  mix-blend-mode:screen;
+  position:absolute;left:0;right:0;height:2px;
+  background:rgba(232,18,26,.6);pointer-events:none;z-index:20;
+  opacity:0;mix-blend-mode:screen;
 }
 
-/* Corners */
-.kl-corner{position:absolute;width:48px;height:48px;pointer-events:none;z-index:15}
-.kl-tl{top:32px;left:32px;border-top:2px solid rgba(232,18,26,.8);border-left:2px solid rgba(232,18,26,.8)}
-.kl-tr{top:32px;right:32px;border-top:2px solid rgba(232,18,26,.8);border-right:2px solid rgba(232,18,26,.8)}
-.kl-bl{bottom:32px;left:32px;border-bottom:2px solid rgba(232,18,26,.8);border-left:2px solid rgba(232,18,26,.8)}
-.kl-br{bottom:32px;right:32px;border-bottom:2px solid rgba(232,18,26,.8);border-right:2px solid rgba(232,18,26,.8)}
-.kl-corner{animation:kl-cornerPulse 2s ease-in-out infinite}
-@keyframes kl-cornerPulse{0%,100%{opacity:.4}50%{opacity:1}}
+/* Adinkra symboles en fond */
+.kl-adinkra-bg{
+  position:absolute;pointer-events:none;z-index:2;
+  opacity:0;
+  transition:opacity 1.2s ease;
+}
+.kl-adinkra-bg.kl-avis{opacity:.07}
+.kl-adinkra-tl{top:6%;left:4%;width:clamp(80px,12vw,150px);height:clamp(80px,12vw,150px)}
+.kl-adinkra-br{bottom:6%;right:4%;width:clamp(60px,9vw,120px);height:clamp(60px,9vw,120px)}
 
 /* HUD bars */
 .kl-hud-top,.kl-hud-bot{
   position:absolute;left:0;right:0;
   display:flex;justify-content:space-between;align-items:center;
-  padding:0 80px;
-  font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
-  color:rgba(232,18,26,.55);z-index:15;
+  padding:0 clamp(24px,5vw,80px);
+  font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(232,18,26,.45);z-index:15;
 }
-.kl-hud-top{top:32px}
-.kl-hud-bot{bottom:32px}
+.kl-hud-top{top:28px}.kl-hud-bot{bottom:28px}
 .kl-hud-text{display:block}
 .kl-blink{animation:kl-blinkAnim 1.1s steps(1) infinite}
 @keyframes kl-blinkAnim{0%,100%{opacity:1}50%{opacity:0}}
 
-/* Central logo */
+/* ── Centre ── */
 .kl-center{
   position:relative;z-index:12;
   display:flex;flex-direction:column;align-items:center;
   text-align:center;
-}
-.kl-logo-wrap{
-  position:relative;margin-bottom:0;
-  opacity:0;transform:scale(.9);
-  transition:opacity .6s, transform .6s cubic-bezier(.16,1,.3,1);
-}
-.kl-logo-wrap.kl-vis{opacity:1;transform:scale(1)}
-.kl-logo-text{
-  font-size:clamp(80px,18vw,200px);
-  font-weight:900;text-transform:uppercase;letter-spacing:-4px;
-  color:#fff;line-height:1;
-  position:relative;display:inline-block;
-}
-/* Glitch pseudo-elements on logo */
-.kl-logo-text::before,.kl-logo-text::after{
-  content:attr(data-text);
-  position:absolute;top:0;left:0;width:100%;height:100%;
-  font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;
-}
-.kl-logo-text::before{
-  color:rgba(0,255,200,.7);
-  animation:kl-logoG1 3s steps(1) infinite;
-  clip-path:inset(0 0 80% 0);
-}
-.kl-logo-text::after{
-  color:rgba(232,18,26,.8);
-  animation:kl-logoG2 3s steps(1) infinite;
-  clip-path:inset(70% 0 0 0);
-}
-@keyframes kl-logoG1{
-  0%,89%,100%{transform:translate(0,0);opacity:0}
-  90%{transform:translate(-4px,0);opacity:1;clip-path:inset(0 0 70% 0)}
-  92%{transform:translate(4px,0);clip-path:inset(20% 0 50% 0)}
-  94%{transform:translate(-2px,0);clip-path:inset(50% 0 20% 0)}
-  96%{transform:translate(0,0);opacity:0}
-}
-@keyframes kl-logoG2{
-  0%,87%,100%{transform:translate(0,0);opacity:0}
-  88%{transform:translate(3px,0);opacity:1;clip-path:inset(60% 0 0 0)}
-  90%{transform:translate(-3px,0);clip-path:inset(80% 0 0 0)}
-  93%{transform:translate(2px,0);clip-path:inset(65% 0 5% 0)}
-  95%{opacity:0}
+  gap:0;
 }
 
-.kl-logo-sub{
-  font-size:clamp(14px,3vw,24px);font-weight:700;
-  letter-spacing:.55em;text-transform:uppercase;
-  color:rgba(232,18,26,.9);margin-top:-8px;
-  opacity:0;transform:translateY(10px);
-  transition:opacity .5s .3s, transform .5s .3s;
+/* ── MASQUE BAOULÉ SVG ── */
+.kl-mask-wrap{
+  position:relative;
+  opacity:0;transform:scale(.85) translateY(12px);
+  transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
 }
-.kl-logo-wrap.kl-vis .kl-logo-sub{opacity:1;transform:translateY(0)}
+.kl-mask-wrap.kl-vis{opacity:1;transform:scale(1) translateY(0)}
 
-.kl-tagline{
-  font-size:clamp(10px,1.5vw,13px);font-weight:600;
-  letter-spacing:.3em;text-transform:uppercase;
-  color:rgba(255,255,255,.25);margin-top:24px;
+.kl-mask-svg{
+  width:clamp(140px,22vw,220px);
+  height:auto;
+  filter:drop-shadow(0 0 18px rgba(232,18,26,.18));
+  transition:filter .5s;
+}
+.kl-mask-wrap.kl-vis .kl-mask-svg{
+  filter:drop-shadow(0 0 32px rgba(232,18,26,.35));
+}
+
+/* Tracés SVG animés (draw-on effect) */
+.kl-mask-path{
+  transition:stroke-dashoffset 0.8s cubic-bezier(.4,0,.2,1);
+}
+/* Phases de révélation */
+.kl-mask-path.kl-p2{transition-delay:.4s}
+.kl-mask-path.kl-p3{transition-delay:.65s}
+.kl-mask-path.kl-p4{transition-delay:.9s}
+.kl-mask-path.kl-p5{transition-delay:1.15s}
+.kl-mask-path.kl-p6{transition-delay:1.35s}
+.kl-mask-path.kl-p7{transition-delay:1.55s}
+/* Revealed state — stroke-dashoffset à 0 */
+.kl-mask-wrap.kl-vis .kl-mask-path{stroke-dashoffset:0!important}
+.kl-mask-fill{transition:fill-opacity 0.5s ease 1.6s}
+.kl-mask-wrap.kl-vis .kl-mask-fill{fill-opacity:.55!important}
+
+/* Épée & bouclier guerrière */
+.kl-warrior-line{
+  transition:stroke-dashoffset 0.7s cubic-bezier(.4,0,.2,1);
+  transition-delay:1.7s;
+}
+.kl-mask-wrap.kl-vis .kl-warrior-line{stroke-dashoffset:0!important}
+
+/* Glow derrière le masque */
+.kl-mask-glow{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:100%;height:100%;
+  border-radius:50%;
+  background:radial-gradient(ellipse,rgba(232,18,26,.12) 0%,transparent 70%);
   opacity:0;
-  transition:opacity .5s .6s;
+  transition:opacity 1s ease .5s;
+  pointer-events:none;z-index:-1;
+  animation:kl-glowPulse 3s ease-in-out infinite alternate;
+}
+.kl-mask-wrap.kl-vis .kl-mask-glow{opacity:1}
+@keyframes kl-glowPulse{
+  from{transform:translate(-50%,-50%) scale(1)}
+  to{transform:translate(-50%,-50%) scale(1.15)}
+}
+
+/* Tagline */
+.kl-tagline{
+  font-size:clamp(9px,1.4vw,12px);font-weight:600;
+  letter-spacing:.32em;text-transform:uppercase;
+  color:rgba(255,255,255,.2);margin-top:20px;
+  opacity:0;transition:opacity .6s .8s;
 }
 .kl-tagline.kl-vis{opacity:1}
 
 /* Boot lines */
 .kl-boot{
-  margin-top:36px;display:flex;flex-direction:column;gap:6px;
-  width:clamp(280px,40vw,480px);
-  text-align:left;
+  margin-top:24px;display:flex;flex-direction:column;gap:5px;
+  width:clamp(260px,38vw,460px);text-align:left;
 }
 .kl-boot-line{
-  font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-  color:rgba(232,18,26,.5);
-  opacity:0;transform:translateX(-12px);
-  transition:opacity .35s, transform .35s, color .3s;
+  font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(232,18,26,.45);
+  opacity:0;transform:translateX(-10px);
+  transition:opacity .35s,transform .35s,color .3s;
   white-space:nowrap;overflow:hidden;
 }
-.kl-boot-line.kl-active{opacity:1;transform:translateX(0);color:rgba(232,18,26,.8)}
-.kl-boot-line.kl-done-line{opacity:.3;color:rgba(255,255,255,.3)}
-.kl-boot-line.kl-ready{color:rgba(100,255,150,.9)!important}
+.kl-boot-line.kl-active{opacity:1;transform:translateX(0);color:rgba(232,18,26,.85)}
+.kl-boot-line.kl-done-line{opacity:.25;color:rgba(255,255,255,.25)}
+.kl-boot-line.kl-ready{color:rgba(255,200,80,.95)!important}
 
 /* Progress */
 .kl-progress-wrap{
-  position:absolute;bottom:88px;left:80px;right:80px;
+  position:absolute;bottom:72px;left:clamp(24px,5vw,80px);right:clamp(24px,5vw,80px);
   z-index:15;
 }
 .kl-progress-track{
-  height:2px;background:rgba(255,255,255,.07);
+  height:1px;background:rgba(255,255,255,.06);
   position:relative;overflow:visible;
 }
 .kl-progress-fill{
   height:100%;background:var(--red,#E8121A);width:0%;
-  transition:width .12s linear;
-  position:relative;
+  transition:width .12s linear;position:relative;
 }
 .kl-progress-glow{
   position:absolute;top:-3px;right:0;width:20px;height:8px;
@@ -1689,249 +1776,188 @@
   margin-top:10px;
 }
 .kl-pct{
-  font-size:13px;font-weight:900;letter-spacing:.1em;
-  color:rgba(232,18,26,.9);
-  font-variant-numeric:tabular-nums;
-  min-width:40px;
+  font-size:12px;font-weight:900;letter-spacing:.1em;
+  color:rgba(232,18,26,.85);font-variant-numeric:tabular-nums;min-width:40px;
 }
 .kl-pstatus{
   font-size:10px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;
-  color:rgba(255,255,255,.2);
+  color:rgba(255,255,255,.18);
   animation:kl-blinkAnim 1.5s steps(1) infinite;
-}
-
-/* Red flash on logo appear */
-@keyframes kl-redFlash{
-  0%{opacity:0}10%{opacity:.3}20%{opacity:0}30%{opacity:.15}40%{opacity:0}
-}
-.kl-red-flash{
-  position:absolute;inset:0;pointer-events:none;z-index:8;
-  background:#E8121A;opacity:0;
 }
 </style>
 
 <script>
-// ══════════════════════
-//  KWENI LOADER ENGINE
-// ══════════════════════
+// ═══════════════════════════════════════════
+//  KWENI LOADER — MASQUE BAOULÉ · AMAZONE
+// ═══════════════════════════════════════════
 (function(){
-  // ── Audio Engine (Web Audio API) ──
   const AC = window.AudioContext || window.webkitAudioContext;
   let ctx = null;
+  function getCtx(){ if(!ctx) ctx = new AC(); return ctx; }
 
-  function getCtx(){
-    if(!ctx) ctx = new AC();
-    return ctx;
-  }
-
-  function playBeep(freq=440, type='square', dur=0.05, vol=0.12, delay=0){
+  function playBeep(freq=440, type='triangle', dur=0.06, vol=0.09, delay=0){
     try{
-      const c=getCtx();
-      const o=c.createOscillator();
-      const g=c.createGain();
+      const c=getCtx(), o=c.createOscillator(), g=c.createGain();
       o.connect(g); g.connect(c.destination);
       o.type=type; o.frequency.setValueAtTime(freq,c.currentTime+delay);
       g.gain.setValueAtTime(0,c.currentTime+delay);
       g.gain.linearRampToValueAtTime(vol,c.currentTime+delay+0.01);
       g.gain.exponentialRampToValueAtTime(0.0001,c.currentTime+delay+dur);
-      o.start(c.currentTime+delay); o.stop(c.currentTime+delay+dur+0.01);
+      o.start(c.currentTime+delay); o.stop(c.currentTime+delay+dur+0.05);
     }catch(e){}
   }
 
-  function playGlitch(){
+  // Son de tambour africain — bruit chaud et grave
+  function playDrum(){
     try{
       const c=getCtx();
-      // White noise burst
-      const buf=c.createBuffer(1,c.sampleRate*.06,c.sampleRate);
+      const buf=c.createBuffer(1,c.sampleRate*.12,c.sampleRate);
       const d=buf.getChannelData(0);
-      for(let i=0;i<d.length;i++) d[i]=(Math.random()*2-1)*.4;
+      for(let i=0;i<d.length;i++) d[i]=(Math.random()*2-1)*Math.exp(-i/c.sampleRate*40);
       const src=c.createBufferSource();
       const g=c.createGain(); const f=c.createBiquadFilter();
-      src.buffer=buf; f.type='bandpass'; f.frequency.value=2000; f.Q.value=.5;
+      src.buffer=buf; f.type='lowpass'; f.frequency.value=280;
       src.connect(f); f.connect(g); g.connect(c.destination);
-      g.gain.setValueAtTime(.15,c.currentTime);
-      g.gain.exponentialRampToValueAtTime(0.001,c.currentTime+.06);
-      src.start(); src.stop(c.currentTime+.08);
+      g.gain.setValueAtTime(.22,c.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001,c.currentTime+.12);
+      src.start(); src.stop(c.currentTime+.15);
     }catch(e){}
   }
 
-  function playBootSound(){
-    // Rising boot sweep
-    try{
-      const c=getCtx();
-      const o=c.createOscillator(); const g=c.createGain();
-      o.connect(g); g.connect(c.destination);
-      o.type='sawtooth';
-      o.frequency.setValueAtTime(80,c.currentTime);
-      o.frequency.exponentialRampToValueAtTime(320,c.currentTime+.4);
-      g.gain.setValueAtTime(0.08,c.currentTime);
-      g.gain.exponentialRampToValueAtTime(0.001,c.currentTime+.45);
-      o.start(); o.stop(c.currentTime+.5);
-    }catch(e){}
-  }
-
+  // Jingle final — pentatonique africain
   function playReadyJingle(){
-    // Short 3-note power-up
-    [523,659,784,1047].forEach((f,i)=>{
-      playBeep(f,'triangle',.12,.1,i*.1);
+    // Ré Fa La Ré (pentatonique)
+    [294,349,440,587].forEach((f,i)=>{
+      playBeep(f,'triangle',.14,.1,i*.12);
     });
+    setTimeout(()=>playDrum(),10);
   }
 
-  // ── Visual Glitch Bands ──
+  // Glitch léger sur les bands
   const bands=[
     document.getElementById('kl-band1'),
     document.getElementById('kl-band2'),
     document.getElementById('kl-band3'),
   ];
-
   function triggerGlitch(intense=false){
-    playGlitch();
-    const count = intense ? 3 : 1;
+    const count=intense?3:1;
     for(let b=0;b<count;b++){
-      const band = bands[b % bands.length];
-      const y = Math.random()*100;
-      band.style.top = y+'%';
+      const band=bands[b%bands.length];
+      band.style.top=Math.random()*100+'%';
       band.style.opacity='1';
-      band.style.height = (intense ? 4+Math.random()*6 : 2) + 'px';
-      band.style.background = Math.random()>.5 ? 'rgba(232,18,26,.8)' : 'rgba(0,255,200,.6)';
-      // Shift content slightly
-      const logo = document.getElementById('kl-logo-text');
-      if(logo){ logo.style.transform=`translate(${(Math.random()-.5)*8}px,0)`; }
-      setTimeout(()=>{
-        band.style.opacity='0';
-        if(logo) logo.style.transform='';
-      }, intense ? 80+Math.random()*120 : 50);
+      band.style.height=(intense?3+Math.random()*5:1.5)+'px';
+      band.style.background=Math.random()>.5?'rgba(232,18,26,.7)':'rgba(255,200,50,.5)';
+      setTimeout(()=>{ band.style.opacity='0'; }, intense?100:50);
     }
   }
 
-  // ── Progress & Boot sequence ──
-  const fill = document.getElementById('kl-progress-fill');
-  const glow = document.getElementById('kl-progress-glow');
-  const pct  = document.getElementById('kl-pct');
+  // Éléments DOM
+  const fill    = document.getElementById('kl-progress-fill');
+  const glow    = document.getElementById('kl-progress-glow');
+  const pct     = document.getElementById('kl-pct');
   const pstatus = document.getElementById('kl-pstatus');
   const loader  = document.getElementById('kweni-loader');
-  const logoWrap = document.getElementById('kl-logo-wrap');
-  const tagline  = document.getElementById('kl-tagline');
+  const maskWrap= document.getElementById('kl-mask-wrap');
+  const tagline = document.getElementById('kl-tagline');
+  const adinkras= document.querySelectorAll('.kl-adinkra-bg');
 
-  const bootLines = [
-    {id:'bl0', label:'▸ INITIALISATION DES MODULES...'},
-    {id:'bl1', label:'▸ CHARGEMENT DES ASSETS VISUELS...'},
-    {id:'bl2', label:'▸ MOTEUR DE JEU ACTIVÉ...'},
-    {id:'bl3', label:'▸ CONNEXION IA KWENI...'},
-    {id:'bl4', label:'✓ READY TO PLAY'},
+  const bootLines=[
+    {id:'bl0'},{id:'bl1'},{id:'bl2'},{id:'bl3'},{id:'bl4'},
   ];
 
-  let progress = 0;
-  let done = false;
-  let audioUnlocked = false;
+  let progress=0, done=false, audioUnlocked=false;
 
-  // Unlock audio on first interaction OR auto-unlock after short delay
   function unlockAudio(){
-    if(!audioUnlocked){
-      audioUnlocked=true;
-      try{ getCtx(); }catch(e){}
-    }
+    if(!audioUnlocked){ audioUnlocked=true; try{getCtx();}catch(e){} }
   }
-  document.addEventListener('click', unlockAudio, {once:true});
-  document.addEventListener('keydown', unlockAudio, {once:true});
-  // Auto-attempt after 300ms
-  setTimeout(unlockAudio, 300);
+  document.addEventListener('click',unlockAudio,{once:true});
+  document.addEventListener('keydown',unlockAudio,{once:true});
+  setTimeout(unlockAudio,300);
 
   function setProgress(val){
-    progress = Math.min(val,100);
-    fill.style.width = progress+'%';
-    glow.style.right = (100-progress)+'%';
-    pct.textContent = Math.round(progress)+'%';
+    progress=Math.min(val,100);
+    fill.style.width=progress+'%';
+    glow.style.right=(100-progress)+'%';
+    pct.textContent=Math.round(progress)+'%';
   }
 
   function activateBootLine(idx){
-    // Mark previous as done
     if(idx>0){
-      const prev = document.getElementById(bootLines[idx-1].id);
-      if(prev){ prev.classList.remove('kl-active'); prev.classList.add('kl-done-line'); }
+      const prev=document.getElementById(bootLines[idx-1].id);
+      if(prev){prev.classList.remove('kl-active');prev.classList.add('kl-done-line');}
     }
-    const el = document.getElementById(bootLines[idx].id);
-    if(el){ el.classList.add('kl-active'); }
-    playBeep(idx===4 ? 880 : 220+idx*80, idx===4 ? 'triangle' : 'square', .04, .08);
-    if(idx===4) triggerGlitch(false);
+    const el=document.getElementById(bootLines[idx].id);
+    if(el) el.classList.add('kl-active');
+    // Son de djembé sur chaque ligne
+    playDrum();
   }
 
-  // ── Main sequence ──
   function runSequence(){
-    // Phase 0 — Logo appears (t=0ms)
-    logoWrap.classList.add('kl-vis');
-    playBootSound();
+    // t=0 — Adinkras apparaissent
+    adinkras.forEach(a=>a.classList.add('kl-avis'));
 
-    // Big glitch burst at logo appear
-    setTimeout(()=>triggerGlitch(true), 200);
-    setTimeout(()=>triggerGlitch(true), 350);
+    // t=200 — Masque se révèle (draw-on via CSS)
+    setTimeout(()=>{
+      maskWrap.classList.add('kl-vis');
+      playBeep(220,'sine',.5,.06); // son grave de réveil
+      setTimeout(()=>triggerGlitch(true),150);
+    },200);
 
-    setTimeout(()=>tagline.classList.add('kl-vis'), 500);
+    // t=700 — Tagline
+    setTimeout(()=>tagline.classList.add('kl-vis'),700);
 
-    // Phase 1 — Progress + boot lines (t=600ms → 3000ms)
-    // Progress ticks
-    const ticks = [
-      {t:600,  v:8,   line:0},
-      {t:900,  v:22},
-      {t:1100, v:35,  line:1},
-      {t:1400, v:48},
-      {t:1700, v:62,  line:2},
-      {t:1900, v:74},
-      {t:2200, v:85,  line:3},
-      {t:2500, v:92},
-      {t:2800, v:100, line:4},
+    // Progress + boot lines
+    const ticks=[
+      {t:700,  v:10,  line:0},
+      {t:1050, v:25},
+      {t:1300, v:40,  line:1},
+      {t:1600, v:55},
+      {t:1850, v:68,  line:2},
+      {t:2100, v:78},
+      {t:2350, v:88,  line:3},
+      {t:2600, v:95},
+      {t:2850, v:100, line:4},
     ];
 
     ticks.forEach(tick=>{
       setTimeout(()=>{
         setProgress(tick.v);
-        if(tick.line !== undefined) activateBootLine(tick.line);
-        // Random glitch on progress jumps
-        if(Math.random()>.6) triggerGlitch(false);
-      }, tick.t);
+        if(tick.line!==undefined) activateBootLine(tick.line);
+        if(Math.random()>.65) triggerGlitch(false);
+      },tick.t);
     });
 
-    // Status labels
-    setTimeout(()=>{ pstatus.textContent='LOADING ASSETS'; }, 700);
-    setTimeout(()=>{ pstatus.textContent='COMPILING'; }, 1400);
-    setTimeout(()=>{ pstatus.textContent='CONNECTING'; }, 2000);
-    setTimeout(()=>{ pstatus.textContent='FINALIZING'; }, 2600);
-    setTimeout(()=>{ pstatus.textContent='READY'; }, 2900);
+    // Labels de statut
+    setTimeout(()=>pstatus.textContent='ÉVEIL EN COURS',800);
+    setTimeout(()=>pstatus.textContent='MÉMOIRE CHARGÉE',1400);
+    setTimeout(()=>pstatus.textContent='ESPRIT ACTIVÉ',2000);
+    setTimeout(()=>pstatus.textContent='CONNEXION',2500);
+    setTimeout(()=>pstatus.textContent='PRÊT',2900);
 
-    // Phase 2 — Ready (t=2900ms)
+    // Jingle final
     setTimeout(()=>{
       playReadyJingle();
       triggerGlitch(true);
-      setTimeout(()=>triggerGlitch(true), 60);
-    }, 2900);
+      setTimeout(()=>triggerGlitch(true),80);
+    },2900);
 
-    // Phase 3 — Dismiss (t=3500ms)
+    // Dismiss
     setTimeout(()=>{
-      if(!done){
-        done=true;
-        loader.classList.add('kl-done');
-      }
-    }, 3500);
+      if(!done){ done=true; loader.classList.add('kl-done'); }
+    },3700);
   }
 
-  // Random ambient glitch every 1-3s
   function ambientGlitch(){
     if(done) return;
-    const delay = 800 + Math.random()*1800;
-    setTimeout(()=>{
-      if(!done) triggerGlitch(false);
-      ambientGlitch();
-    }, delay);
+    setTimeout(()=>{ if(!done) triggerGlitch(false); ambientGlitch(); },1000+Math.random()*2000);
   }
 
-  // Start
   if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded', ()=>{ runSequence(); ambientGlitch(); });
+    document.addEventListener('DOMContentLoaded',()=>{runSequence();ambientGlitch();});
   } else {
     runSequence();
     ambientGlitch();
   }
-
 })();
 </script>
 
